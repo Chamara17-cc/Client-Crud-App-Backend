@@ -1,12 +1,24 @@
 package com.clientapp.Client_Crud_App.models;
 
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
+
+@Entity
 public class User {
 
+    @Id
     private int id;
+
+    @Column
     private String name; 
+    @Column
     private String email;
+    @Column
     private int age;
+    @Column
     private String gender;
+    @Column
     private int contactnumber;
 
     public User() {}
