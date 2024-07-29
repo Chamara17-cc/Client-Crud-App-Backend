@@ -8,6 +8,7 @@ import com.clientapp.services.UserServices;
 
 @RestController
 @RequestMapping("/user")
+@CrossOrigin(origins = "http://localhost:4200")
 public class userController {
 
     private final UserServices userServices;
