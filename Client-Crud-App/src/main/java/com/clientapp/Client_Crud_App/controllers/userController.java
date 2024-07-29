@@ -27,9 +27,9 @@ public class userController {
         return userServices.createnewUser(user);
     }
 
-    @PutMapping
-    public String updateUser(@RequestBody User user) {
-        return userServices.updateUser(user);
+    @PutMapping("/{userid}")
+    public String updateUser(@RequestBody User user, @PathVariable("userid") Integer id) {
+        return userServices.updateUser(user, id);
     }
 
     @DeleteMapping("{userid}")

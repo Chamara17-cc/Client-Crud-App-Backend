@@ -1,6 +1,7 @@
 package com.clientapp.services;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -28,10 +29,23 @@ public class ImplUserServices implements UserServices{
     }
 
     @Override
-    public String updateUser(User user) {
-        userrepository.save(user);
-       return "Updated";
+    public String updateUser(User user,Integer Id) {
+        Optional<User> optionalUser = userrepository.findById(Id);
+        if (optionalUser.isPresent()) {
+            User existingUser = optionalUser.get();
+
+            existingUser.setName(user.getName());
+            existingUser.setEmail(user.getEmail());
+           existingUser.setContactnumber(user.getContactnumber());
+           existingUser.setGender(user.getGender());
+           existingUser.setAge(user.getAge());
+            userrepository.save(existingUser);
+            return "User updated successfully";
+        } else {
+            return "User not found";
+
     }
+}
 
     @Override
     public String deleteUser(Integer Id) {
