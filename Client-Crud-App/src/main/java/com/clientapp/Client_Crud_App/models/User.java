@@ -8,7 +8,7 @@ import jakarta.persistence.Id;
 public class User {
 
     @Id
-    private int id;
+    private Integer id;
 
     @Column
     private String name; 
